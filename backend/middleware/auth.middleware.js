@@ -38,7 +38,3 @@ export const protectRoute = async (req, res, next) => {
     }
 };
 
-//visit claudinary.com   login visit the dashboard copy cloud name
-//.env CLOUDINAR_CLOUD_NAME=PASTE]
-//CLOUDINARY_API_KEY=
-//CLOUDINARY_API_SECRET= TO GET THEM GO TO SETTINGS API KEY CREATE NEW API KEY
