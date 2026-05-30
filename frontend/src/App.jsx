@@ -28,14 +28,6 @@ const App = () => {
       </div>
     );
 
-   //index.js instal cors  the import cors from "cors"
- // app.use(
- // cors({
- //   origin: "http://localhost:5173",
- //   credentials: true,
- // })
-//); install lucide react frontend
-
   return (
     <div >
       <Navbar/>

@@ -4,12 +4,18 @@ import messageRoutes from "./routes/message.route.js";
 import dotenv from "dotenv";
 import connectDB from "./lib/db.js";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 //initialize dotenv
 dotenv.config();
 
 //start app
 const app = express();
+
+app.use(cors({
+  origin: "http://localhost:5173",
+  credentials: true
+}));
 
 // allows extraction of json data
 app.use(express.json());
