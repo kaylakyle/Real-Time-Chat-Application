@@ -11,10 +11,3 @@ createRoot(document.getElementById('root')).render(
     </BrowserRouter>
   </StrictMode>,
 )
-
-
-// to do listcd
-
-// install npm react router dom react hot toast initallize tailwind css npm install -D tailwindcss autoprefixer daisy ui go to daisy ui .com use import daisy ui
-//delete app.css
-//delete all in appp.jsx rafce
