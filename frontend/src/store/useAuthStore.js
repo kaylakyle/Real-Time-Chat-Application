@@ -14,9 +14,7 @@ export const useAuthStore = create((set, get) => ({
   onlineUsers: [],
   socket: null,
 
-  // =====================
   // AUTH
-  // =====================
 
   checkAuth: async () => {
     try {
@@ -98,16 +96,14 @@ export const useAuthStore = create((set, get) => ({
     }
   },
 
-  // =====================
-  // SOCKET (FIXED)
-  // =====================
+  // SOCKET
 
   connectSocket: () => {
     const { authUser, socket } = get();
 
     if (!authUser) return;
 
-    // 🔥 prevent duplicate connections
+    //  prevent duplicate connections
     if (socket && socket.connected) return;
 
     const newSocket = io(BASE_URL, {
@@ -115,7 +111,7 @@ export const useAuthStore = create((set, get) => ({
         userId: authUser._id,
       },
       transports: ["websocket"],
-      forceNew: true, // 🔥 prevents weird reconnect bugs
+      forceNew: true, //  prevents weird reconnect bugs
     });
 
     newSocket.connect();
@@ -123,7 +119,7 @@ export const useAuthStore = create((set, get) => ({
     set({ socket: newSocket });
 
     newSocket.on("connect", () => {
-      console.log("✅ Socket connected:", newSocket.id);
+      console.log(" Socket connected:", newSocket.id);
     });
 
     newSocket.on("getOnlineUsers", (users) => {
@@ -131,7 +127,7 @@ export const useAuthStore = create((set, get) => ({
     });
 
     newSocket.on("disconnect", () => {
-      console.log("❌ Socket disconnected");
+      console.log(" Socket disconnected");
     });
   },
 

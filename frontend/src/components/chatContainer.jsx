@@ -20,7 +20,7 @@ const ChatContainer = () => {
   const { authUser } = useAuthStore();
   const messageEndRef = useRef(null);
 
-  // ✅ Safe loading of messages + socket subscription
+  //  Safe loading of messages + socket subscription
   useEffect(() => {
     if (!selectedUser?._id) return;
 
@@ -32,7 +32,7 @@ const ChatContainer = () => {
     };
   }, [selectedUser?._id]);
 
-  // ✅ Auto scroll to latest message
+  //  Auto scroll to latest message
   useEffect(() => {
     if (messageEndRef.current) {
       messageEndRef.current.scrollIntoView({ behavior: "smooth" });
