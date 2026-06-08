@@ -1,38 +1,82 @@
-import express from "express"
+import express from "express";
 import authRoutes from "./routes/auth.route.js";
 import messageRoutes from "./routes/message.route.js";
 import dotenv from "dotenv";
 import connectDB from "./lib/db.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import http from "http";
+import { Server } from "socket.io";
 
-//initialize dotenv
 dotenv.config();
 
-//start app
 const app = express();
 
+// ========================
+// MIDDLEWARE
+// ========================
 app.use(cors({
   origin: "http://localhost:5173",
-  credentials: true
+  credentials: true,
 }));
 
-// allows extraction of json data
 app.use(express.json());
-// allow to parse the cookie
 app.use(cookieParser());
 
-//routes for login,signup,logout
-app.use("/api/auth", authRoutes)
-app.use("/api/messages", messageRoutes)
+// ========================
+// ROUTES
+// ========================
+app.use("/api/auth", authRoutes);
+app.use("/api/messages", messageRoutes);
 
-//connect db
+// ========================
+// DB
+// ========================
 connectDB();
 
+// ========================
+// SOCKET SETUP (FIX 🔥)
+// ========================
+const server = http.createServer(app);
 
-// start server port
+const io = new Server(server, {
+  cors: {
+    origin: "http://localhost:5173",
+    credentials: true,
+  },
+});
+
+// store online users
+const userSocketMap = {};
+
+io.on("connection", (socket) => {
+  console.log("User connected:", socket.id);
+
+  const userId = socket.handshake.query.userId;
+
+  if (userId) {
+    userSocketMap[userId] = socket.id;
+  }
+
+  // send online users to all clients
+  io.emit("getOnlineUsers", Object.keys(userSocketMap));
+
+  socket.on("disconnect", () => {
+    console.log("User disconnected:", socket.id);
+
+    if (userId) {
+      delete userSocketMap[userId];
+    }
+
+    io.emit("getOnlineUsers", Object.keys(userSocketMap));
+  });
+});
+
+// ========================
+// START SERVER
+// ========================
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
