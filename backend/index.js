@@ -25,12 +25,10 @@ app.use(cookieParser());
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
-
 // DB
 connectDB();
 
-
-// SOCKET SETUP 
+// SOCKET SETUP
 const server = http.createServer(app);
 
 const io = new Server(server, {
@@ -52,8 +50,17 @@ io.on("connection", (socket) => {
     userSocketMap[userId] = socket.id;
   }
 
-  // send online users to all clients
+  // send online users
   io.emit("getOnlineUsers", Object.keys(userSocketMap));
+
+  // ✅ REAL-TIME MESSAGE HANDLER (THIS WAS MISSING)
+  socket.on("sendMessage", ({ receiverId, message }) => {
+    const receiverSocketId = userSocketMap[receiverId];
+
+    if (receiverSocketId) {
+      io.to(receiverSocketId).emit("receiveMessage", message);
+    }
+  });
 
   socket.on("disconnect", () => {
     console.log("User disconnected:", socket.id);
