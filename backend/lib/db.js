@@ -1,5 +1,5 @@
 import mongoose from "mongoose";// enable connect to db
-import dotenv from "dotenv";
+import dotenv from "dotenv";//read from dotennv
 
 dotenv.config();
 
