@@ -122,7 +122,7 @@ Real-Time-Chat-Application
 │   ├── models/
 │   ├── routes/
 │   ├── sockets/
-│   └── config/
+│   └── /
 │
 ├── package.json
 ├── README.md
