@@ -121,7 +121,7 @@ Real-Time-Chat-Application
 │   ├── middleware/
 │   ├── models/
 │   ├── routes/
-│   ├── sockets/
+│   ├── /
 │   └── /
 │
 ├── package.json
