@@ -113,7 +113,7 @@ Real-Time-Chat-Application
 │   ├── src/
 │   ├── components/
 │   ├── pages/
-│   ├── hooks/
+│   ├──/
 │   └── services/
 │
 ├── server/
