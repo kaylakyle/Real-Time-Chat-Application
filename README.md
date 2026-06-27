@@ -114,7 +114,7 @@ Real-Time-Chat-Application
 │   ├── components/
 │   ├── pages/
 │   ├──/
-│   └── services/
+│   └── /
 │
 ├── server/
 │   ├── controllers/
