@@ -78,58 +78,6 @@ This **Real-Time Chat Application** solves these challenges by providing a fast,
 
 ---
 
-# 🏗️ System Architecture
-
-```text
-Client (React)
-        │
-        │ HTTP Requests
-        ▼
-Express API Server
-        │
-        ├──────── Authentication
-        │
-        ├──────── REST API
-        │
-        ▼
-Socket.IO Server
-        │
-        ▼
-Connected Users
-        │
-        ▼
-MongoDB Database
-````
-
----
-
-# 📂 Project Structure
-
-```text
-Real-Time-Chat-Application
-│
-├── client/
-│   ├── public/
-│   ├── src/
-│   ├── components/
-│   ├── pages/
-│   ├──/
-│   └── /
-│
-├── server/
-│   ├── controllers/
-│   ├── middleware/
-│   ├── models/
-│   ├── routes/
-│   ├── /
-│   └── /
-│
-├── package.json
-├── README.md
-└── .env
-```
-
----
 
 # 🚀 Application Workflow
 
