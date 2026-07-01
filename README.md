@@ -204,7 +204,15 @@ JWT_SECRET=your_secret_key
 
 CLIENT_URL=http://localhost:3000
 ```
+Email: demo@streamify.app
+Password: demo1234
 
+##  How to setup the project.
+
+# clone the project in your pc
+
+# npm run build
+# npm start
 ---
 
 
