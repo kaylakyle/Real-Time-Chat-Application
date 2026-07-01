@@ -189,26 +189,7 @@ Real-Time-Chat-Application
 git clone https://github.com/kaylakyle/Real-Time-Chat-Application.git
 ```
 
-### 2️⃣ Navigate into the Project
 
-```bash
-cd Real-Time-Chat-Application
-```
-
-### 3️⃣ Install Backend Dependencies
-
-```bash
-npm install
-```
-
-### 4️⃣ Install Frontend Dependencies
-
-```bash
-cd client
-npm install
-```
-
----
 
 # ⚙️ Environment Variables
 
@@ -226,28 +207,7 @@ CLIENT_URL=http://localhost:3000
 
 ---
 
-# ▶️ Running the Project
 
-### Start the Backend
-
-```bash
-npm run server
-```
-
-### Start the Frontend
-
-```bash
-cd client
-npm start
-```
-
----
-
-# 👥 Demo
-
-You can create your own account after running the project locally.
-
-Or use the demo account below if available.
 
 | Email                                       | Password    |
 | ------------------------------------------- | ----------- |
